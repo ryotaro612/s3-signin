@@ -1,0 +1,9 @@
+# Terraform
+**/terraform.tfvars
+**/.terraform
+**/.terraform.lock.hcl
+**/*.tfstate
+**/*.tfstate.backup
+# Emacs
+*~
+
