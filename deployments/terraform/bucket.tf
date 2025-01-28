@@ -9,6 +9,9 @@ variable "aws_profile" {
 variable "bucket_name" {
   type = string
 }
+variable "key" {
+  type = string
+}
 
 
 provider "aws" {
@@ -19,15 +22,11 @@ provider "aws" {
 resource "aws_s3_bucket" "sample_bucket" {
   bucket = var.bucket_name
 
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
 }
 
 resource "aws_s3_object" "sample_object" {
   bucket = var.bucket_name
-  key    = "index.txt"
+  key    = var.key
   source = "index.txt"
 }
 

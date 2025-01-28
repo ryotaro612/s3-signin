@@ -29,7 +29,7 @@ func init() {
 	}
 	flag.StringVar(&profile, "profile", "default", "AWS profile to use")
 	flag.StringVar(&bucket, "bucket", "", "A S3 bucket name")
-	flag.StringVar(&key, "key", "", "AWS profile to use")
+	flag.StringVar(&key, "key", "", "A S3 object key")
 }
 
 // Presigner encapsulates the Amazon Simple Storage Service (Amazon S3) presign actions
@@ -90,6 +90,7 @@ func main() {
 		}
 	}()
 	ctx := context.Background()
+	logger.Info("profile", "profile", profile)
 	presigner, err := makePresinder(ctx, profile)
 	if err != nil {
 		return
